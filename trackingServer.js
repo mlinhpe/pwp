@@ -12,10 +12,9 @@ const port = 10011
 const fileName = 'visits.txt'
 
 // send the current date and ip address of visitors
-app.set('trust proxy', true)
 app.get('/getPixel', (req, res) => {
    const currentDate = new Date()
-   const ip = req.ips
+   const ip = req.connection.remoteAddress
    fs.appendFileSync(fileName, "IP " + ip + " TIMESTAMP: " + currentDate + "\n")
    res.sendFile(path.join(__dirname, '/pixel', 'pixel.jpg'))
 })
