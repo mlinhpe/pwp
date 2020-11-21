@@ -14,7 +14,7 @@ const fileName = 'visits.txt'
 // send the current date and ip address of visitors
 app.get('/getPixel', (req, res) => {
    const currentDate = new Date()
-   const ip = req.connection.remoteAddress 
+   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
    fs.appendFileSync(fileName, "IP " + ip + " TIMESTAMP: " + currentDate + "\n")
    res.sendFile(path.join(__dirname, '/pixel', 'pixel.jpg'))
 })
