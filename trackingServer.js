@@ -14,9 +14,8 @@ const fileName = 'visits.txt'
 // send the current date and ip address of visitors
 app.set('trust proxy', true)
 app.get('/getPixel', (req, res) => {
-   console.log(JSON.stringify(req))
    const currentDate = new Date()
-   const ip = req.ip
+   const ip = req.ips
    fs.appendFileSync(fileName, "IP " + ip + " TIMESTAMP: " + currentDate + "\n")
    res.sendFile(path.join(__dirname, '/pixel', 'pixel.jpg'))
 })
