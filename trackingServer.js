@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
        
        <body>
        <p><b> Hello, can you spot the pixel? </b></p>
-       <img src="http://localhost:10011/getPixel">
+       <img src="https://pwp.um.ifi.lmu.de/g11/getPixel">
        </body>
        
        </html>`)
